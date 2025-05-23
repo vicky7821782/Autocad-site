@@ -6,7 +6,7 @@
     }
 
     body {
-      background: url('background-image.png') no-repeat center center/cover;
+      background: url('images/background-image.png') no-repeat center center/cover;
       color: white;
     }
 
@@ -24,21 +24,12 @@
 
     nav ul {
       list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      display : none;
     }
 
     nav ul li a {
       color: black;
       text-decoration: none;
       font-weight: 500;
-    }
-
-    .nav i {
-      font-size : 2vw;
-      font-weight: 2vw;
-      display : block;
     }
 
     .hero {
@@ -111,13 +102,6 @@
       display: none;
     }
     
-    .menu-icon {
-      display: block;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: black;
-    }
-    
 
     @media (min-width: 768px) {
       .hero {
@@ -138,10 +122,6 @@
       .nav-links {
         display: flex;
         gap: 1.5rem;
-      }
-    
-      .menu-icon {
-        display: none;
       }
 
       .hero h1 {
@@ -328,4 +308,217 @@
 .contact-hours p {
   margin: 2px 0;
   font-size: 14px;
+}
+
+/* --- General Styling for New Sections --- */
+.gallery-section,
+.testimonials-section,
+.youtube-video-section {
+    padding: 3rem 1rem; /* Adjusted padding for mobile */
+    text-align: center;
+    background: #1E1E1E; /* Matches syllabus section background */
+    color: #ffffff;
+}
+
+.gallery-section h2,
+.testimonials-section h2,
+.youtube-video-section h2 {
+    font-size: 2rem; /* Consistent with other section titles */
+    margin-bottom: 30px; /* Consistent spacing */
+    color: #ffffff;
+}
+
+/* --- Gallery Section --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on small screens */
+    gap: 1rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px; /* Consistent with other rounded corners */
+    border: 2px solid #3ca4ff; /* Accent color border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(60, 164, 255, 0.3); /* Accent color shadow */
+}
+
+/* --- Testimonials Section --- */
+.testimonials-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on small screens */
+    gap: 1.5rem;
+    max-width: 900px; /* Max width for content */
+    margin: auto;
+}
+
+.testimonial-card {
+    background: #2f2f2f; /* Darker card background, similar to form button */
+    padding: 1.5rem;
+    border-radius: 10px; /* Consistent border-radius */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-left: 5px solid #3ca4ff; /* Accent color border on the left */
+}
+
+.testimonial-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #f0f0f0; /* Lighter text for readability */
+}
+
+.testimonial-card h4 {
+    font-size: 1.1rem;
+    color: #3ca4ff; /* Accent color for name/identifier */
+    text-align: right;
+}
+
+/* --- General Styling for New Sections (Keep your existing rules) --- */
+.gallery-section,
+.testimonials-section,
+.youtube-video-section {
+  padding: 3rem 1rem; /* Adjusted padding for mobile */
+  text-align: center;
+  background: #1E1E1E; /* Matches syllabus section background */
+  color: #ffffff;
+}
+
+.gallery-section h2,
+.testimonials-section h2,
+.youtube-video-section h2 {
+  font-size: 2rem; /* Consistent with other section titles */
+  margin-bottom: 30px; /* Consistent spacing */
+  color: #ffffff;
+}
+
+/* --- YouTube Video Section --- */
+/* Remove or comment out the old .video-container CSS if it's no longer needed for a single video:
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+*/
+
+/* New styles for the video grid */
+.videos-grid-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  gap: 1.5rem; /* Space between videos */
+  max-width: 1200px; /* Adjust max-width as needed */
+  margin: auto; /* Center the grid */
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px; /* Consistent rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Consistent shadow */
+  background-color: #000; /* Optional: background color while video loads */
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove iframe border */
+}
+
+/* --- Media Queries for Responsiveness (adjust as needed) --- */
+@media (min-width: 768px) {
+  .gallery-section,
+  .testimonials-section,
+  .youtube-video-section {
+    padding: 4rem 2rem; /* More padding on larger screens */
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+  }
+
+  .videos-grid-container {
+    grid-template-columns: repeat(2, 1fr); /* Two video columns on tablets and small desktops */
+  }
+
+  .testimonials-container {
+    /* Keep single column for testimonials or switch to 2 if desired */
+    /* grid-template-columns: repeat(2, 1fr); */ /* Uncomment for two columns */
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr); /* Four columns on larger screens */
+  }
+
+  .testimonials-container {
+    grid-template-columns: repeat(3, 1fr); /* Three columns for testimonials on larger screens */
+  }
+
+  /* Optional: If you have 3 videos and want them in a single row on large screens */
+  /* Or if you have 4 and want 2x2, the above rule for 768px will already do that. */
+  /* For 3 videos in a row:
+  .videos-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  */
+  /* For 4 videos, repeat(2, 1fr) is fine. If you specifically want 4 in a row (might be too small): */
+  /*
+  .videos-grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  */
+}
+
+/* --- Media Queries for Responsiveness (adjust as needed) --- */
+@media (min-width: 768px) {
+    .gallery-section,
+    .testimonials-section,
+    .youtube-video-section {
+        padding: 4rem 2rem; /* More padding on larger screens */
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+    }
+
+    .testimonials-container {
+         /* Keep single column for testimonials or switch to 2 if desired */
+        /* grid-template-columns: repeat(2, 1fr); */ /* Uncomment for two columns */
+    }
+}
+
+@media (min-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr); /* Four columns on larger screens */
+    }
+
+    .testimonials-container {
+        grid-template-columns: repeat(3, 1fr); /* Three columns for testimonials on larger screens */
+    }
 }
