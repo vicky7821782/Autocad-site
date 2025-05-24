@@ -129,3 +129,24 @@ const observer = new IntersectionObserver((entries) => {
 
 featureCards.forEach(card => observer.observe(card));
 
+// Smooth scrolling for navigation links
+document.querySelectorAll('header nav .nav-links a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        // Ensure targetId is a valid selector (e.g., "#some-id" and not just "#")
+        if (targetId && targetId.startsWith('#') && targetId.length > 1) {
+            try {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault(); // Prevent default anchor jump
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start' // Aligns the top of the target element to the top of the viewport
+                    });
+                }
+            } catch (error) {
+                console.error("Error finding element for scroll or invalid selector:", targetId, error);
+            }
+        }
+    });
+});
